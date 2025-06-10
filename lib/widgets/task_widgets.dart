@@ -38,16 +38,7 @@ class _TaskWidgetsState extends State<TaskWidgets> {
   }
 
   void deleteTask(HiveDataBase hive) async {
-    final List<HiveDataBase> allTasks = this.hive.values.toList();
-    final deletedTaskIndex = allTasks.indexOf(hive);
-
-    final HiveDataBase deletedTask = HiveDataBase(
-        title: hive.title,
-        date: hive.date,
-        description: hive.description,
-        priority: hive.priority,
-        isDone: hive.isDone
-    );
+    final deletedTaskIndex = this.hive.values.toList().indexOf(hive);
 
     await hive.delete();
 
@@ -57,13 +48,15 @@ class _TaskWidgetsState extends State<TaskWidgets> {
           duration: Duration(seconds: 6),
           action: SnackBarAction(
               label: 'Undo',
-              onPressed: () async {
-               List<HiveDataBase> currentTask = this.hive.values.toList();
+              onPressed: () {
+                final newTask = HiveDataBase(
+                    title: hive.title,
+                    date: hive.date,
+                    description: hive.description,
+                    priority: hive.priority
+                );
 
-               currentTask.insert(deletedTaskIndex, deletedTask);
-
-               await this.hive.clear();
-                this.hive.addAll(currentTask);
+                this.hive.add(newTask);
                 setState(() {});
               },
           ),
