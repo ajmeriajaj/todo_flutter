@@ -1,11 +1,9 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:todo_flutter/database/hive_database.dart';
 import 'package:todo_flutter/screen/add_task_screen.dart';
 import 'package:todo_flutter/widgets/task_list_view.dart';
-
 import '../responsive.dart';
 import '../widgets/filter_list_view.dart';
 
