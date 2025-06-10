@@ -28,7 +28,7 @@ class _FilterWidgetsState extends State<FilterWidgets> {
         elevation: 10,
         child: Padding(
           padding:  EdgeInsets.symmetric(
-            horizontal: 10 * getResponsive(context),
+            horizontal: 15 * getResponsive(context),
             vertical: 5 * getResponsive(context),
           ),
           child: Text(widget.fills),

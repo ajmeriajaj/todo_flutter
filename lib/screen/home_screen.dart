@@ -95,7 +95,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             SizedBox(height: 0.017 * getHeight(context),),
             SizedBox(
-                height: 0.050 * getHeight(context),
+                height: 0.043 * getHeight(context),
                 child: FilterListView(
                   selectedFilter: _selectedFilter,
                   onFilterSelected: _onFilterChange,
